@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     console.log('Sending request to Hugging Face API')
     const response = await hf.textGeneration({
-      model: 'gpt2',
+      model: 'your model',
       inputs: prompt,
     })
 

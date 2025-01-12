@@ -54,6 +54,20 @@ or
 npm install @huggingface/inference@latest
 (if you are using Hugging face)
 ```
+## Important
+- Ensure in route.ts and test-huggingface-api.js in model you have to give your preferred model.
+- if you are using OPEN Ai api key then
+## Key Changes:
+- Replace Hugging Face API Key:
+  Switched from HfInference to OpenAI's OpenAIApi initialization using the apiKey.
+- API Method Update:
+  Replaced Hugging Face's hf.textGeneration method with OpenAI's createCompletion method.
+- Model:
+  Used OpenAI's text-davinci-003 model (or a similar GPT model). You can adjust the model to fit your requirements.
+- Environment Variable:
+  Ensure you set OPENAI_API_KEY in your environment (e.g., .env file) instead of HUGGINGFACE_API_KEY.
+
+
 
 ## Project Structure
 
