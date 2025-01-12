@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CDP Support Chatbot
 
-## Getting Started
+A React-based chatbot that provides support and information for various Customer Data Platforms (CDPs).
 
-First, run the development server:
+## Features
 
+- Interactive chat interface
+- Support for multiple CDPs (Segment, mParticle, Lytics, Zeotap)
+- Real-time responses to CDP-related queries
+- Cross-CDP comparison capabilities
+- User-friendly CDP selection interface
+
+## Tech Stack
+
+- React
+- TypeScript
+- Next.js
+- OpenAI API
+- Shadcn
+- Hugging Face API
+
+## Prerequisites
+
+- Node.js installed
+- OpenAI API key or Hunnging Face API Token
+
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/sanikaap/CDP-Bot.git
+cd cdp-support-chatbot
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create `.env.local` file in the root directory:
+```plaintext
+OPENAI_API_KEY=your_api_key_here
+or
+HUGGINGFACE_API_KEY=your_api_key
+(if you are using Hugging face ensure you are using right model)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Install required packages:
+```bash
+npm install openai @vercel/next
+or
+npm install @huggingface/inference@latest
+(if you are using Hugging face)
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+cdp-support-chatbot/
+├── app/
+│   ├── page.tsx            # Main chat interface
+│   └── api/
+│       └── chat/
+│           └── route.ts    # API route handler
+├── .env.local              # Environment variables
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Implementation Steps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Main Chat Interface (`app/page.tsx`):
+   - Implements user interface components
+   - Manages state for CDP selection
+   - Handles message history
+   - Processes user input
 
-## Deploy on Vercel
+2. API Integration (`app/api/chat/route.ts`):
+   - Handles chat requests
+   - Integrates with Hugging Face API (you can use your PreferreSd GPT API)
+   - Processes CDP-specific responses
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Start the development server:
+```bash
+npm run dev
+```
+
+2. Access the application at `http://localhost:3000`
+
+3. Select a CDP from the dropdown menu
+
+4. Start asking questions about the selected CDP
+
+## NEED Enhancement
+
+1. Response Formatting:
+   - Implement markdown support
+   - Add code snippet formatting
+   - Include rich media responses
+
+2. Error Handling:
+   - Add retry mechanisms
+   - Implement fallback responses
+   - Add error boundaries
+
+3. User Experience:
+   - Add response rating system
+   - Implement conversation history
+   - Add typing indicators
+
+4. CDP Knowledge Base:
+   - Expand system prompts
+   - Add specific CDP documentation
+   - Include use case examples
+
